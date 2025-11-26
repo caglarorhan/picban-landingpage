@@ -8,15 +8,15 @@
     <!-- Primary Meta Tags -->
     <title>PicBan - Privacy Protection Browser Extension | Think Before You Share</title>
     <meta name="title" content="PicBan - Privacy Protection Browser Extension | Think Before You Share">
-    <meta name="description" content="PicBan is a Chrome browser extension that protects your privacy by detecting sensitive content in photos before you upload them to social media. 100% local processing, no cloud uploads.">
-    <meta name="keywords" content="privacy protection, NSFW detection, browser extension, chrome extension, image safety, upload protection, privacy tool">
+    <meta name="description" content="PicBan is a Chrome browser extension that protects your privacy by detecting NSFW content, child faces, blood/gore, and swimsuit photos before you upload. Multi-model AI detection with 100% local processing.">
+    <meta name="keywords" content="privacy protection, NSFW detection, child face detection, blood gore detection, browser extension, chrome extension, image safety, upload protection, privacy tool, TensorFlow.js, AI image analysis">
     <meta name="author" content="PicBan">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://picban.com/">
     <meta property="og:title" content="PicBan - Privacy Protection Browser Extension">
-    <meta property="og:description" content="Protect your privacy by detecting sensitive content in photos before you upload them to social media. 100% local processing, no cloud uploads.">
+    <meta property="og:description" content="AI-powered privacy protection detecting NSFW, child faces, blood/gore & swimsuit content before upload. Multi-model analysis with 100% local processing.">
     <meta property="og:image" content="https://picban.com/assets/PicBan_logo_128.png">
     <meta property="og:image:width" content="128">
     <meta property="og:image:height" content="128">
@@ -27,7 +27,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://picban.com/">
     <meta property="twitter:title" content="PicBan - Privacy Protection Browser Extension">
-    <meta property="twitter:description" content="Protect your privacy by detecting sensitive content in photos before you upload them to social media. 100% local processing, no cloud uploads.">
+    <meta property="twitter:description" content="AI-powered privacy protection detecting NSFW, child faces, blood/gore & swimsuit content before upload. Multi-model analysis with 100% local processing.">
     <meta property="twitter:image" content="https://picban.com/assets/PicBan_logo_128.png">
     
     <!-- Favicon -->
@@ -257,10 +257,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
         }
         
         .section-subtitle {
@@ -565,48 +562,62 @@
     <!-- Features Section -->
     <section id="features" class="section">
         <h2 class="section-title">✨ Features</h2>
-        <p class="section-subtitle">Comprehensive privacy protection with cutting-edge technology</p>
+        <p class="section-subtitle">Comprehensive privacy protection with cutting-edge AI technology</p>
         
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🔞</div>
                 <h3>NSFW/Nudity Detection</h3>
-                <p>Automatically detects adult content using advanced TensorFlow.js models to protect you from accidental uploads.</p>
+                <p>Multi-method detection combining NSFWJS, skin analysis, and person detection. Smart threshold scaling for optimal accuracy.</p>
                 <span class="feature-badge complete">✅ Available Now</span>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">👶</div>
                 <h3>Child Face Detection</h3>
-                <p>Protects children's privacy by detecting and warning about photos containing minors before sharing.</p>
-                <span class="feature-badge">🔜 Coming Soon</span>
+                <p>AI-powered face analysis using MediaPipe with 4-indicator child detection: face size, shape, body proportion, and eye spacing.</p>
+                <span class="feature-badge complete">✅ Available Now</span>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🩱</div>
                 <h3>Swimsuit Photo Detection</h3>
-                <p>Warns about revealing photos that might be inappropriate for certain contexts or platforms.</p>
-                <span class="feature-badge">🔜 Coming Soon</span>
+                <p>Smart detection with beach context override - allows normal beach photos while catching inappropriate content.</p>
+                <span class="feature-badge complete">✅ Available Now</span>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🩸</div>
                 <h3>Blood/Gore Detection</h3>
-                <p>Blocks violent content by identifying blood, injuries, and graphic content before upload.</p>
-                <span class="feature-badge">🔜 Coming Soon</span>
+                <p>Advanced 5-layer detection: color analysis, texture patterns, spatial distribution, contrast edges, and ML violence classes.</p>
+                <span class="feature-badge complete">✅ Available Now</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🧪</div>
+                <h3>Test Image Feature</h3>
+                <p>Test any image against all detection rules with detailed results, confidence bars, and analysis breakdown.</p>
+                <span class="feature-badge complete">✅ Available Now</span>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">⚙️</div>
                 <h3>Customizable Rules</h3>
-                <p>Configure sensitivity thresholds and custom descriptions to match your privacy preferences.</p>
+                <p>Configure sensitivity thresholds with smart scaling. One-click reset to optimum defaults.</p>
                 <span class="feature-badge complete">✅ Available Now</span>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">🌐</div>
                 <h3>Site Whitelist</h3>
-                <p>Disable checking for trusted websites where you want unrestricted uploads.</p>
+                <p>One-click popup button to whitelist sites. Real-time sync with subdomain matching support.</p>
+                <span class="feature-badge complete">✅ Available Now</span>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📤</div>
+                <h3>Import/Export Settings</h3>
+                <p>Backup and restore all settings including thresholds, rules, and whitelisted sites to JSON.</p>
                 <span class="feature-badge complete">✅ Available Now</span>
             </div>
             
@@ -620,7 +631,7 @@
             <div class="feature-card">
                 <div class="feature-icon">⚡</div>
                 <h3>Fast & Efficient</h3>
-                <p>Lightweight extension with 50-500ms analysis time per image. Minimal impact on browsing experience.</p>
+                <p>200-500ms analysis with 4 ML models running in parallel. GPU acceleration via WebGL when available.</p>
                 <span class="feature-badge complete">✅ Available Now</span>
             </div>
         </div>
@@ -629,31 +640,31 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="section" style="background: var(--bg-light);">
         <h2 class="section-title">🔍 How It Works</h2>
-        <p class="section-subtitle">Simple, seamless protection in 4 easy steps</p>
+        <p class="section-subtitle">Advanced 4-step AI analysis pipeline</p>
         
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3>Select Image</h3>
-                <p>Choose a photo to upload via file picker, drag & drop, or paste from clipboard</p>
+                <h3>Interception</h3>
+                <p>PicBan intercepts file input, drag & drop, or paste events on any webpage</p>
             </div>
             
             <div class="step">
                 <div class="step-number">2</div>
-                <h3>Automatic Scan</h3>
-                <p>PicBan intercepts and analyzes the image using TensorFlow.js models locally</p>
+                <h3>Multi-Model Analysis</h3>
+                <p>4 AI models run in parallel: NSFWJS, MobileNet, COCO-SSD, and MediaPipe Face Detector</p>
             </div>
             
             <div class="step">
                 <div class="step-number">3</div>
-                <h3>Get Warning</h3>
-                <p>If sensitive content is detected, you'll see a clear warning dialog with details</p>
+                <h3>Smart Detection</h3>
+                <p>4-step pipeline: Child detection → Blood analysis → NSFW check → Final decision with context override</p>
             </div>
             
             <div class="step">
                 <div class="step-number">4</div>
                 <h3>You Decide</h3>
-                <p>Choose to cancel the upload or proceed anyway - you're always in control</p>
+                <p>View detailed warnings with confidence scores, then cancel or proceed - always your choice</p>
             </div>
         </div>
     </section>
@@ -693,37 +704,47 @@
     <!-- Technical Details Section -->
     <section class="section" style="background: var(--bg-light);">
         <h2 class="section-title">🔧 Technical Details</h2>
-        <p class="section-subtitle">Built with modern web technologies</p>
+        <p class="section-subtitle">Powered by 4 AI models running locally in your browser</p>
         
         <div class="tech-stack">
             <div class="tech-item">
+                <h4>NSFWJS MobileNetV2</h4>
+                <p>NSFW classification with 90% accuracy (~2.6MB)</p>
+            </div>
+            
+            <div class="tech-item">
+                <h4>MobileNet v2</h4>
+                <p>1000-class image classification for context detection</p>
+            </div>
+            
+            <div class="tech-item">
+                <h4>COCO-SSD</h4>
+                <p>Object detection for people & 90 classes with bounding boxes</p>
+            </div>
+            
+            <div class="tech-item">
+                <h4>MediaPipe Face Detector</h4>
+                <p>Advanced face detection with facial landmarks</p>
+            </div>
+            
+            <div class="tech-item">
+                <h4>TensorFlow.js 4.22</h4>
+                <p>ML framework with WebGL GPU acceleration</p>
+            </div>
+            
+            <div class="tech-item">
                 <h4>Manifest V3</h4>
-                <p>Modern Chrome extension architecture for enhanced security</p>
+                <p>Modern Chrome extension architecture</p>
             </div>
             
             <div class="tech-item">
-                <h4>TensorFlow.js</h4>
-                <p>Machine learning directly in the browser for real-time analysis</p>
+                <h4>Page Context Injection</h4>
+                <p>Bypasses CSP for ML execution on strict sites</p>
             </div>
             
             <div class="tech-item">
-                <h4>NSFWJS Model</h4>
-                <p>Pre-trained on 60,000+ images based on MobileNetV2</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>Chrome Storage API</h4>
-                <p>Persistent settings storage for your preferences</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>Content Scripts</h4>
-                <p>Seamless upload interception across all websites</p>
-            </div>
-            
-            <div class="tech-item">
-                <h4>Service Worker</h4>
-                <p>Background processing for efficient model loading</p>
+                <h4>Chrome APIs</h4>
+                <p>Storage, Scripting & Tabs for seamless integration</p>
             </div>
         </div>
         
@@ -731,20 +752,20 @@
             <h3 style="margin-bottom: 1rem;">📊 Performance Metrics</h3>
             <div class="tech-stack" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
                 <div class="tech-item">
-                    <h4>2-5 seconds</h4>
-                    <p>Initial model load time</p>
+                    <h4>10-15 seconds</h4>
+                    <p>First-time model load (~10MB, cached after)</p>
                 </div>
                 <div class="tech-item">
-                    <h4>50-500ms</h4>
-                    <p>Analysis per image</p>
+                    <h4>&lt;1 second</h4>
+                    <p>Subsequent loads (cached)</p>
                 </div>
                 <div class="tech-item">
-                    <h4>~4MB</h4>
-                    <p>Model size</p>
+                    <h4>200-500ms</h4>
+                    <p>Analysis per image (4 models parallel)</p>
                 </div>
                 <div class="tech-item">
-                    <h4>50-100MB</h4>
-                    <p>Memory usage</p>
+                    <h4>~150-200MB</h4>
+                    <p>Memory with all models loaded</p>
                 </div>
             </div>
         </div>
